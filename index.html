@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>web background changer</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Pilih warna</div>
+        <div class="box">
+            <div class="circle red"></div>
+            <div class="circle blue"></div>
+            <div class="circle aqua"></div>
+            <div class="circle black"></div>
+        </div>
+
+        <div class="btn white">reset</div>
+    </div>
+    <script>
+        const circles = document.querySelectorAll(".circle");
+        console.log(circles)
+        circles.forEach(circle => {
+            circle.addEventListener("click", ({target}) => {
+                const {backgroundColor} = getComputedStyle(target)
+                document.body.style.backgroundColor = backgroundColor;
+                if (document.body.style.backgroundColor === "rgb(0, 0, 0)") {
+                    document.body.style.color = "white";
+                } else {
+                    document.body.style.color = "black";
+                }
+            })
+        }) 
+
+        const btns = document.querySelectorAll(".btn");
+        console.log(btns);
+        btns.forEach(btn => {
+            btn.addEventListener("click", ({target}) => {
+                const {backgroundColor} = getComputedStyle(target)
+                document.body.style.backgroundColor = backgroundColor
+                if (document.body.style.backgroundColor === "rgb(0, 0, 0)") {
+                    document.body.style.color = "white";
+                } else {
+                    document.body.style.color = "black";
+                }
+            })
+        })
+    </script>
+</body>
+</html>
